@@ -1,7 +1,8 @@
 <template>
   <div class="main ">
     <div class="box">
-      <img class="animate__animated animate__flip col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 "
+      <img class=" col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 "
+           :class="show?'animate__animated animate__flip':''"
            src="../../public/logo.png" alt="logo"
            @load="handleImageLoad"
       >
