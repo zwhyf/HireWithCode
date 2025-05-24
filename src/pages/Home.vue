@@ -1,24 +1,37 @@
 <template>
   <div class="main ">
     <div class="box">
-      <img class="animate__animated animate__flip col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 " src="../../public/logo.png" alt="logo">
-      <h2 class="content">欢迎来到 infist 线上面试环节，期待你的加入！</h2>
+      <img class="animate__animated animate__flip col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6 "
+           src="../../public/logo.png" alt="logo"
+           @load="handleImageLoad"
+      >
+      <h2 v-show="!show" class="content">欢迎来到 infist 线上面试环节，期待你的加入！</h2>
     </div>
+    <Spin
+        fix
+        size="large"
+        :show="show"
+    >
+      <Icon type="ios-loading" size=18 class="demo-spin-icon-load"></Icon>
+      <div>页面加载中...</div>
+    </Spin>
   </div>
 </template>
 
 <script setup lang="ts">
-import {onBeforeMount} from "vue";
+import {ref,onBeforeMount} from "vue";
 import {useRouter} from "vue-router";
 const router = useRouter()
 
-onBeforeMount(()=>{
+let show = ref(true)
+function handleImageLoad(){
+  show.value = false
   setTimeout(()=>{
     router.push({
       name:"interview"
     })
   },2000)
-})
+}
 
 </script>
 
