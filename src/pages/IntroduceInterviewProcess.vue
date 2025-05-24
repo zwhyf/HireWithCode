@@ -4,6 +4,7 @@
       <div class="markdown-body"
            v-if="markdownText!==''"
            v-html="markdownHtml"
+           style="background-color: white"
       >
       </div>
       <div class="submit">
