@@ -13,7 +13,6 @@ import {useRouter} from "vue-router";
 const router = useRouter()
 
 onBeforeMount(()=>{
-  console.log("开始倒计时")
   setTimeout(()=>{
     router.push({
       name:"interview"
